@@ -155,10 +155,10 @@ There are many types of IR. This term paper will present the \textit{static sing
 \noindent\textbf{Static Single Assignment (SSA)}\\
 It is a commonly used form for IR with static variables, commonly used for complex optimizations. The variables in the code blocks of the control flow graph have the restriction that variables cannot be updated. Instead, the variable is replaced by a new version:\cite{introduction-to-compilers-and-language-design}
 The left side of every variable assignment must have a unique name.
-The output of each basic code block is determined by an individual $\phi$-function which selects an output based on its input operands based on which control flow edge the dynamic execution entered the basic block through.\cite{interpreting-programs-in-SSA-form}\\
+The output of each basic code block is determined by an individual $\phi$-function, which selects an output based on its input operands, based on which control flow edge the dynamic execution entered the basic block through.\cite{interpreting-programs-in-SSA-form}\\
 
 \noindent\textbf{Register Transfer Language (RTL)}\\
-\textit{RTL} are a low-level IR and are often used by compilers for optimization.\\
+\textit{RTLs} are a low-level IR, often used by compilers for optimization.\\
 It forms machine instructions by combining as many logical statements together without simplifying them by breaking them down.\\
 RTL models computations of the actual hardware as operations that transfer values between virtual registers and memory.\\
 
@@ -433,8 +433,10 @@ However it performs worse than Ghidra with \textit{ARM}-binaries.
 \section{Evaluation}
 \label{sec:evaluation}
 
-The benchmark comparison of the evaluated papers 
-
+The benchmark comparison of the evaluated papers shows that Ghidra has, in almost all cases, a better performance than angr.\\
+The only benchmark where angr outperforms Ghidra is the disassembly of \texttt{MIPS}-binaries from\texttt{GCC}- and \texttt{Clang} Compiler, where it has a $4.035\,\%$ better F1-score than angr on average.\cite{DisCo-combining-disassemblers-for-improved-performance}\\
+Across the other performance metrics, Ghidra exhibits superior results compared to angr: In the \textit{DecompileBench}-paper, Ghidra outperforms angr by $49.64\,\%$ in decompilation.\cite{decompileBench-comprehensice-benchmark-for-evaluating-decompilers-in-real-world-scenarios}\\
+In the \texttt{ARM}-comparison, Ghidra performs $4.92\,\%$ better at finding instruction boundaries and $36.01\,\%$ better at detecting function boundaries. \cite{an-empirical-study-on-ARM-disassembly-disassembly-tools}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Related Work}
