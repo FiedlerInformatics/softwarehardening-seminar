@@ -160,7 +160,7 @@ The output of each basic code block is determined by an individual $\phi$-functi
 \noindent\textbf{Register Transfer Language (RTL)}\\
 \textit{RTLs} are a low-level IR, often used by compilers for optimization.\\
 It forms machine instructions by combining as many logical statements together without simplifying them by breaking them down.\\
-RTL models computations of the actual hardware as operations that transfer values between virtual registers and memory.\\
+RTL models computations of the actual hardware as operations that transfer values between virtual registers and memory.\cite{The-RTL-System-A-Framework-for-Code-Optimization}\\
 
 \noindent\textbf{Control Flow Graph (CFG)}\\
 Another important IR type is CFG, which is used to show the higher-level structure of a program. CFGs are directed graphs whose nodes are \textit{basic blocks}, i.e., maximal sequences of statements with a single entry and single exit. The edges between them represent the decision flow of sequential execution. Conditional constructs appear as separate blocks and result in branch nodes in the graph that split the control flow, while loops are represented by cycles in the graph.\cite{introduction-to-compilers-and-language-design}
@@ -332,7 +332,7 @@ Varnodes are typeless sequential bytes, only characterized by a starting address
 
 \noindent\textbf{Operations}\\
 P-Code operations represent the machine instructions of a processor.
-All operations are mapped to the address of a specific machine instruction and can be generalized as functions which take one or more varnodes as input and exactly one varnode as output:\cite{Pcode-reference-manual}
+All operations are mapped to the address of a specific machine instruction and can be generalized as functions which take one or more varnodes as input and exactly one varnode as output:\cite{PCode-reference-manual}
 $$
 \text{P-Code operation}(v_0,v_1,\dots,v_{n\in\mathbb N}) \rightarrow v_{new}
 $$
@@ -341,7 +341,7 @@ $$
 \label{sec:performance comparison}
 
 VEX IR was developed by the valgrind project with an architecture agnostic approach, focusing on abstraction and quick program analysis, which may be not human readable but optimized for automatization and symbolic execution.\\
-P-Code focuses mainly on static analysis and decompilation, and has a more human readable semantics and a clearer mapping from machine code to intermediate representation.\\
+P-Code focuses mainly on static analysis and decompilation, and has a more human readable semantics and a clearer mapping from machine code to IR with lower abstraction.\\
 The following comparison is regarding the difference in performance measuring outcomes of the papers:\textit{ Decompilebench: A comprehnsible benchmark for evaluating decompilers in the real world scenarios}\cite{decompileBench-comprehensice-benchmark-for-evaluating-decompilers-in-real-world-scenarios}, \textit{DisCo: Combining Disassemblers for Improved Performance}\cite{DisCo-combining-disassemblers-for-improved-performance} and \textit{An Empirical Study on ARM Disassembly Tools}\cite{an-empirical-study-on-ARM-disassembly-disassembly-tools}
 
 \subsection{Decompilation}
@@ -373,8 +373,8 @@ Ghidra & 0.524 & 0.421 & 0.395 & 0.377 & 0.353 & \textbf{0.413} & 0.374 & 0.294 
 
 \subsection{Disassembly}
 In order to combine disassemblers, \texttt{DisCo} evaluates the performance of commonly used reverse engineering tools using \textit{Correctly identified function starts (CFS)} as well as \textit{precision and recall} and their derived F1 scores as key metrics for comparison of disassemblers.\\
-Angr outperforms at the disassembly of \texttt{MIPS}-binaries, where it has a $4.04\%$ better F1-score than Ghidra.
-However it performs worse than Ghidra with \textit{ARM}-binaries.
+Angr outperforms at the disassembly of \texttt{MIPS}-binaries, where it has a $4.035\,\%$ better F1-score than Ghidra.
+However it performs worse than Ghidra with \texttt{}{ARM}-binaries.
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|c|c||c|c|}
@@ -436,7 +436,7 @@ However it performs worse than Ghidra with \textit{ARM}-binaries.
 The benchmark comparison of the evaluated papers shows that Ghidra has, in almost all cases, a better performance than angr.\\
 The only benchmark where angr outperforms Ghidra is the disassembly of \texttt{MIPS}-binaries from\texttt{GCC}- and \texttt{Clang} Compiler, where it has a $4.035\,\%$ better F1-score than angr on average.\cite{DisCo-combining-disassemblers-for-improved-performance}\\
 Across the other performance metrics, Ghidra exhibits superior results compared to angr: In the \textit{DecompileBench}-paper, Ghidra outperforms angr by $49.64\,\%$ in decompilation.\cite{decompileBench-comprehensice-benchmark-for-evaluating-decompilers-in-real-world-scenarios}\\
-In the \texttt{ARM}-comparison, Ghidra performs $4.92\,\%$ better at finding instruction boundaries and $36.01\,\%$ better at detecting function boundaries. \cite{an-empirical-study-on-ARM-disassembly-disassembly-tools}. 
+In the \texttt{ARM}-comparison, Ghidra performs $4.92\,\%$ better at finding instruction boundaries and $36.01\,\%$ better at detecting function boundaries.\cite{an-empirical-study-on-ARM-disassembly-disassembly-tools}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Related Work}
@@ -456,7 +456,10 @@ The findings of this paper reveil the root causes of failed analysis and provide
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
 \label{sec:conclusion}
-
+Binary analysis is a crucial weapon in the defense against malware.\\
+In order to have a wide approach to tackle threads, many ideas must be nurtured.\\
+While Ghidra shows better benchmark performance, angr cultivates a more wider, open source focused approach of a reverse engineering toolbox for defensive analysis.\\
+Further investigations could be carried out to determine the causes of the difference in performance of Ghidra and angr. Wether they are due to the differences of the used IRs or more because of the internal workflow.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{plainnat}
