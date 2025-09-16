@@ -1,0 +1,247 @@
+
+@article{art-of-war-angr,
+    author = {Yan Shoshitaishvili and Ruoyu Wang and Christopher Salls and Nick Stephens and Mario Polino and Andrew Dutcher and
+John Grosen and Siji Feng and Christophe Hauser and Christopher Kruegel and Giovanni Vigna},
+    title = {(State of) The Art of War: Offensive Techniques in Binary Analysis},
+    journal = {IEEE Secur. Priv.},
+    year = {2016},
+    doi = {10.1109/SP.2016.17},
+}
+
+@article{formal-semantics-for-P-Code,
+    author = {Nico Naus and Freek Verbeck and Binoy Ravindran},
+    title = {A Formal Semantics for P-Code},
+    journal = {Springer and VSTTE'22},
+    year = {2022},
+}
+
+@article{angr-internals,
+    author = {subwire and lockshaw},
+    title = {throwing a tantrum, part 1: angr internals},
+    institution = {Computer Security Lab at UC Santa barbara and SEFCOM at Arizona State University},
+    url = {https://angr.io/blog/throwing_a_tantrum_part_1/},
+}
+
+@article{angr-vex,
+    author = {subwire and lockshaw},
+    title = {throwing a tantrum, part 4: vex and gymrat},
+    institution = {Computer Security Lab at UC Santa barbara and SEFCOM at Arizona State University},
+    url = {https://angr.io/blog/throwing_a_tantrum_part_4/},
+}
+
+@article{PCode-reference-manual,
+    institution = {National Security Agency (NSA)},
+    title = {P-Code Reference Manual},
+    year = {2023},
+    url = {https://ghidra.re/ghidra_docs/languages/html/pcoderef.html}
+}
+
+@article{sleigh-manual,
+    institution = {National Security Agency (NSA)},
+    title = {SLEIGH, A Language for Rapid Processor Specification},
+    year = {2023},
+    url = {https://ghidra.re/ghidra_docs/languages/html/pcoderef.html}
+}
+
+@article{reverse-engineering-design-recovery-taxonomy,
+    author = {Elliot Chikovsky and James H. Cross},
+    title = {Reverse engineering and design recovery: a taxonomy},
+    journal = {IEEE},
+    year = {1990},
+    url = {https://ieeexplore.ieee.org/document/43044}
+}
+
+@article{small-primer-on-software-reverse-engineering,
+    author = {Hausi A. Müller and Holger M. Kienle},
+    title = {A Small Primer on Software Reverse Engineering},
+    institution = {University of Victoria},
+    year = {2009},
+    month = {March}
+}
+
+@ARTICLE{ieeeStandard-for-SW-maintenance,
+  author={},
+  journal={IEEE Std 1219-1993}, 
+  title={IEEE Standard for Software Maintenance}, 
+  year={1993},
+  volume={},
+  number={},
+  pages={1-45},
+  keywords={Software maintenance;Standards;maintenance;software;software maintenance},
+  doi={10.1109/IEEESTD.1993.115570}}
+
+@article{working-with-ghidras-pCode-to-identify-vulnerable-function-calls,
+    author = {Alexei Bulazel},
+    title = {Working With Ghidra's P-Code To Identify Vulnerable Function Calls},
+    journal = {Infiltrate Security Conference 2019},
+    year = {2019},
+    month = {May}
+}
+
+@inproceedings{decompileBench-comprehensice-benchmark-for-evaluating-decompilers-in-real-world-scenarios,
+    title = "{D}ecompile{B}ench: A Comprehensive Benchmark for Evaluating Decompilers in Real-World Scenarios",
+    author = {Gao, Zeyu,
+      Cui, Yuxin,
+      Wang, Hao,
+      Qin, Siliang,
+      Wang, Yuand,
+      Bolun, Zhan,
+      Zhang, Chao},
+    editor = "Che, Wanxiang  and Nabende, Joyce  and Shutova, Ekaterina and Pilehvar, Mohammad Taher",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL 2025",
+    month = jul,
+    year = "2025",
+    address = "Vienna, Austria",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.findings-acl.1194/",
+    doi = "10.18653/v1/2025.findings-acl.1194",
+    pages = "23250--23267",
+    ISBN = "979-8-89176-256-5",
+    abstract = "Decompilers are fundamental tools for critical security tasks, from vulnerability discovery to malware analysis, yet their evaluation remains fragmented. Existing approaches primarily focus on syntactic correctness through synthetic micro-benchmarks or subjective human ratings, failing to address real-world requirements for semantic fidelity and analyst usability. We present **DecompileBench**, the first comprehensive framework that enables effective evaluation of decompilers in reverse engineering workflows through three key components: real-world function extraction (comprising 23,400 functions from 130 real-world programs), runtime-aware validation, and automated human-centric assessment using LLM-as-Judge to quantify the effectiveness of decompilers in reverse engineering workflows. Through a systematic comparison between six industrial-strength decompilers and six recent LLM-powered approaches, we demonstrate that LLM-based methods surpass commercial tools in code understandability despite 52.2{\%} lower functionality correctness. These findings highlight the potential of LLM-based approaches to transform human-centric reverse engineering. We open source **DecompileBench** to provide a framework to advance research on decompilers and assist security experts in making informed tool selections based on their specific requirements."
+}
+
+@article{reverse-engineering-vs-disassembly,
+    author = {Ralph Meier},
+    title = {Reverse Engineering - Introduction to the World of Disassembling and Decompiling},
+    journal = {scip Labs},
+    year = {2021},
+    month = {Jan},
+    institution = {scip AG},
+    url = {https://www.scip.ch/en/?labs.20211202}
+} 
+
+@inproceedings{interpreting-programs-in-SSA-form,
+author = {von Ronne, Jeffery and Wang, Ning and Franz, Michael},
+title = {Interpreting programs in static single assignment form},
+year = {2004},
+isbn = {1581139098},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1059579.1059585},
+doi = {10.1145/1059579.1059585},
+abstract = {Optimizing compilers, including those in virtual machines, commonly utilize Static Single Assignment Form as their intermediate representation, but interpreters typically implement stack-oriented virtual machines. This paper introduces an easily interpreted variant of Static Single Assignment Form. Each instruction of this Interpretable Static Single Assignment Form, including the Phi Instruction, has self-contained operational semantics facilitating efficient interpretation. Even the array manipulation instructions possess directly-executable single-assignment semantics. In addition, this paper describes the construction of a prototype virtual machine realizing Interpretable Static Single Assignment Form and reports on its performance.},
+booktitle = {Proceedings of the 2004 Workshop on Interpreters, Virtual Machines and Emulators},
+pages = {23–30},
+numpages = {8},
+location = {Washington, D.C.},
+series = {IVME '04}
+}
+
+@book{practical-malware-analysis,
+    author = {Michael Sikorski and Andrew Honig},
+     title = {Practical Malware Analysis The Hands-On Guide to Dissecting Malicious Software},
+    publisher = {No Starch Press},
+    year = {2012},
+    isbn = {1593272901}
+}
+
+@book{introduction-to-compilers-and-language-design,
+    author = {Douglas Thain},
+    title = {Introduction to Compilers and Language Desgin: Second Edition},
+    publisher = {University of Notre Dame},
+    year = {2020}
+}
+
+@book{computer-architecture-a-quantitive-approach,
+    author = {John L. Hennessy, David A. Patterson, Christos Kozyrakis},
+    title = {Computer Architecture - A Quantitive Approach, Sixth Eddition},
+    publisher = {Morgan Kaufmann Publishers},
+    year = {2019}
+}
+
+@book{ghidra-book-definite-guide,
+    author = {Kara Nance, Chris Eagle},
+    title = {The Ghidra Book: The Definite Guide},
+    publisher = {No Starch Press},
+    year = {2020}
+}
+
+@article{spmag23-mlmalware,
+    author = {Lorenzo Cavallaro and Johannes Kinder and Feargus Pendlebury and Fabio Pierazzi},
+    title = {Are Machine Learning Models for Malware Detection Ready for Prime Time?},
+    journal = {IEEE Secur. Priv.},
+    volume = {21},
+    number = {2},
+    pages = {53--56},
+    year = {2023},
+    doi = {10.1109/MSEC.2023.3236543},
+}
+
+@misc{claripy-documentation,
+    title = {Claripy documentation},
+    key = {The angr project},
+    note = {Accessed: 2025-09-01},
+    url = {https://api.angr.io/projects/claripy/en/latest/index.html}
+}
+
+@misc{core-concepts,
+    title = {Core Concepts},
+    key = {The angr project},
+    note = {Accessed: 2025-09-01},
+    url = {https://docs.angr.io/en/latest/core-concepts/toplevel.html}
+}
+
+@misc{loading-a-binary,
+    title = {Loading a Binary},
+    key = {The angr project},
+    note = {Accessed: 2025-09-01},
+    url = {https://docs.angr.io/en/latest/core-concepts/loading.html#loading-a-binary}
+}
+
+@misc{sleigh-a-language-for-rapid-processor-specification,
+    title = {SLEIGH - A Language for Rapid Processor Specification},
+    key = {NSA},
+    year = {2023},
+    url = {https://fossies.org/linux/ghidra/GhidraDocs/languages/html/sleigh.html}
+}
+
+@inproceedings{testing-intermediate-representation-for-binary-analysis,
+author = {Kim, Soomin and Faerevaag, Markus and Jung, Minkyu and Jung, SeungIl and Oh, DongYeop and Lee, JongHyup and Cha, Sang Kil},
+title = {Testing intermediate representations for binary analysis},
+year = {2017},
+isbn = {9781538626849},
+publisher = {IEEE Press},
+abstract = {Binary lifting, which is to translate a binary executable to a high-level intermediate representation, is a primary step in binary analysis. Despite its importance, there are only few existing approaches to testing the correctness of binary lifters. Furthermore, the existing approaches suffer from low test coverage, because they largely depend on random test case generation. In this paper, we present the design and implementation of the first systematic approach to testing binary lifters. We have evaluated the proposed system on 3 state-of-the-art binary lifters, and found 24 previously unknown semantic bugs. Our result demonstrates that writing a precise binary lifter is extremely difficult even for those heavily tested projects.},
+booktitle = {Proceedings of the 32nd IEEE/ACM International Conference on Automated Software Engineering},
+pages = {353–364},
+numpages = {12},
+keywords = {N-version IR Testing, Binary-Based Intermediate Representation, Binary Lifter, Binary Analysis},
+location = {Urbana-Champaign, IL, USA},
+series = {ASE '17}
+}
+
+@inproceedings{DisCo-combining-disassemblers-for-improved-performance,
+author = {Shaila, Sri and Darki, Ahmad and Faloutsos, Michalis and Abu-Ghazaleh, Nael and Sridharan, Manu},
+title = {DisCo: Combining Disassemblers for Improved Performance},
+year = {2021},
+isbn = {9781450390583},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3471621.3471851},
+doi = {10.1145/3471621.3471851},
+abstract = {Malware infects thousands of systems globally each day causing millions of dollars in damages. Which disassembler should a malware analyst choose in order to get the most accurate disassembly and be able to detect, analyze and defuse malware quickly? There is no clear answer to this question: (a) the performance of disassemblers varies across configurations, and (b) most prior work on disassemblers focuses on benign software and the x86 CPU architecture. In this work, we take a different approach and ask: why not use all the disassemblers instead of picking one? We present DisCo, a novel and effective approach to harness the collective capability of a group of disassemblers combining their output into an ensemble consensus. We develop and evaluate our approach using 1760 IoT malware binaries compiled with different compilers and compiler options for the ARM and MIPS architectures. First, we show that DisCo can combine the collective wisdom of disassemblers effectively. For example, our approach outperforms the best contributing disassembler by as much as 17.8\% in the F1 score for function start identification for MIPS binaries compiled using GCC with O3 option. Second, the collective wisdom of the disassemblers can be brought back to improve each disassembler. As a proof of concept, we show that byte-level signatures identified by DisCo can improve the performance of Ghidra by as much as 13.6\% in terms of the F1 score. Third, we quantify the effect of the architecture, the compiler, and the compiler options on the performance of disassemblers. Finally, the systematic evaluation within our approach led to a bug discovery in Ghidra v9.1, which was acknowledged by the Ghidra team.},
+booktitle = {Proceedings of the 24th International Symposium on Research in Attacks, Intrusions and Defenses},
+pages = {148–161},
+numpages = {14},
+keywords = {ARM and MIPS architecture, Disassembly Tools, Ensemble, Ghidra Bug Discovery, Improving Disassembly},
+location = {San Sebastian, Spain},
+series = {RAID '21}
+}
+
+@inproceedings{an-empirical-study-on-ARM-disassembly-disassembly-tools,
+author = {Jiang, Muhui and Zhou, Yajin and Luo, Xiapu and Wang, Ruoyu and Liu, Yang and Ren, Kui},
+title = {An empirical study on ARM disassembly tools},
+year = {2020},
+isbn = {9781450380089},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3395363.3397377},
+doi = {10.1145/3395363.3397377},
+abstract = {With the increasing popularity of embedded devices, ARM is becoming the dominant architecture for them. In the meanwhile, there is a pressing need to perform security assessments for these devices. Due to different types of peripherals, it is challenging to dynamically run the firmware of these devices in an emulated environment. Therefore, the static analysis is still commonly used. Existing work usually leverages off-the-shelf tools to disassemble stripped ARM binaries and (implicitly) assume that reliable disassembling binaries and function recognition are solved problems. However, whether this assumption really holds is unknown. In this paper, we conduct the first comprehensive study on ARM disassembly tools. Specifically, we build 1,896 ARM binaries (including 248 obfuscated ones) with different compilers, compiling options, and obfuscation methods. We then evaluate them using eight state-of-the-art ARM disassembly tools (including both commercial and noncommercial ones) on their capabilities to locate instructions and function boundaries. These two are fundamental ones, which are leveraged to build other primitives. Our work reveals some observations that have not been systematically summarized and/or confirmed. For instance, we find that the existence of both ARM and Thumb instruction sets, and the reuse of the BL instruction for both function calls and branches bring serious challenges to disassembly tools. Our evaluation sheds light on the limitations of state-of-the-art disassembly tools and points out potential directions for improvement. To engage the community, we release the data set, and the related scripts at https://github.com/valour01/arm_disasssembler_study.},
+booktitle = {Proceedings of the 29th ACM SIGSOFT International Symposium on Software Testing and Analysis},
+pages = {401–414},
+numpages = {14},
+keywords = {ARM Architecture, Disassembly Tools, Empirical Study},
+location = {Virtual Event, USA},
+series = {ISSTA 2020}
+}
