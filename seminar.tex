@@ -22,7 +22,7 @@
 
 \begin{abstract}
 
-\noindent Comparing binaries from different platforms and architectures is a necessary but complicated task in software hardening and malware analysis. Intermediate Representation offers a way of representing programming logic by rewriting it into an abstraction between the source language's structure and the target assembly's concrete structure, while detached from the limitations of an actual architecture. Reverse engineering platforms and compilers use it to further analyze it, such as optimization, analysis, and efficient code generation.
+\noindent Comparing binaries from different platforms and architectures is a necessary but complicated task in software hardening and malware analysis. Intermediate representation offers a way of representing programming logic by rewriting it into an abstraction between the source language's structure and the target assembly's concrete structure, while detached from the limitations of an actual architecture. Reverse engineering platforms and compilers use it to further analyze it, such as optimization, analysis, and efficient code generation.
 
 This approach also enables a better development of novel solutions: It is often easier and faster to create a lifter into an IR for a new architecture than to write an individual virtual machine for it.
 
@@ -37,7 +37,7 @@ The focus lies on the different approaches of the IR, their creation and usage b
 The term reverse engineering originates from hardware analysis, which aims to decipher the architecture of established products.\cite{reverse-engineering-design-recovery-taxonomy}\\
 The reverse engineering process of software is the identification of the components of the system and their collaboration. The next step is to create an abstract representation of the system: The Intermediate Representation (IR).
 
-Reverse engineering platforms and compilers use it to do further analysis, such as optimization, analysis, and code generation into higher-level languages such as C.
+Reverse engineering platforms and compilers are used for further analysis, such as optimization, analysis, and code generation into higher-level languages such as C.
 
 Intermediate representations, also known as intermediate languages, are designed to remove this burden.
 
@@ -61,8 +61,8 @@ The variety of anti-reverse engineering techniques illustrates the need for furt
 
 \subsection{What is Reverse Engineering?}
 \label{sec:reverse-engineering-background}
-Software reverse-engineering is the analysis of systems in order to identify their components and their interrelationships. Furthermore, to represent the system in another form or abstraction.\cite{reverse-engineering-design-recovery-taxonomy}
-The IEEE Standard for Software Maintenance defines reverse engineering as "the process of extracting software system information from source code."\cite{ieeeStandard-for-SW-maintenance}
+Software reverse-engineering is the analysis of a system to identify its components and their interrelationships. Furthermore, to represent the system in another form or abstraction.\cite{reverse-engineering-design-recovery-taxonomy}
+The IEEE Standard for Software Maintenance defines reverse engineering as " the process of extracting software system information from source code."\cite{ieeeStandard-for-SW-maintenance}
 It can, however, start at any level of abstraction and any stage of the software development life cycle. The goal of the examination is to understand the logic behind a program and decide whether it is harmful. The main domains of reverse engineering are \textit{redocumentation} and \textit{design recovery}.
 \\\\
 \textbf{Redocumentation}\\
@@ -82,8 +82,8 @@ Reengineering is the analysis of a program to alter it into a new form.
 \label{disassembly-vs-decompilation}
 
 \textbf{Disassembling}\\
-Reverse engineering with disassembly is the translation of binaries in machine code into human-understandable assembly
-One of the caveats of the faster execution of \textit{compiled languages} in comparison to interpreted ones is the loss of meta-information from the original program, e.g., lost names of variables and functions; therefore, complete reversion is impossible.
+Reverse engineering with disassembly is the translation of binaries in machine code into human-understandable assembly.y
+One of the caveats of the faster execution of \textit{compiled languages} compared to interpreted ones is the loss of meta-information from the original program, e.g., lost names of variables and functions; therefore, complete reversion is impossible.
 However, a disassembler can trace back the execution and display it as human-readable assembly.\cite{reverse-engineering-vs-disassembly}\\
 
 \begin{figure}[htbp]
@@ -149,7 +149,7 @@ It is used for optimization, analysis, and efficient code generation. An \textit
 There are many types of IR. This term paper will present the \textit{static single assignment form} and the \textit{Register Transfer Language}.\\
 
 \noindent\textbf{Static Single Assignment (SSA)}\\
-It is a commonly used form for IR with static variables, commonly used for complex optimizations. The variables in the code blocks of the control flow graph have the restriction that they cannot be updated. Instead, a new version replaces the variable\cite{introduction-to-compilers-and-language-design}: The left side of every variable assignment must have a unique name. An individual $\phi$-function determines the output of each basic code block. It computes a result based on the input operands, which are selected on the basis of the control flow edge through which the dynamic execution entered the block.\cite{interpreting-programs-in-SSA-form}\\
+It is a commonly used form for IR with static variables, commonly used for complex optimizations. The variables in the code blocks of the control flow graph have the restriction that they cannot be updated. Instead, a new version replaces the variable\cite{introduction-to-compilers-and-language-design}: The left side of every variable assignment must have a unique name. An individual $\phi$-function determines the output of each basic code block. It computes a result based on the input operands, which are selecbased ons of the control flow edge through which the dynamic execution entered the block.\cite{interpreting-programs-in-SSA-form}\\
 
 
 \noindent\textbf{Register Transfer Language (RTL)}\\
@@ -171,13 +171,13 @@ The edges between them represent the decision flow of sequential execution. Cond
 \label{sec:angr-internals}
 
 The first step into reverse-engineering with angr is loading a binary into a project, which consists of information about its CPU architecture, filename, and the entry point address.\cite{core-concepts} The binary is then loaded into the angr analysis system by the \textit{CLE loader} by providing base classes for reproducing binary objects.
-CLE uses file format parsing libraries, e.g., elftool for Linux and portable executable files for Windows, to parse the objects themselves.
+CLE uses \textit{file format parsing libraries}, e.g., \texttt{elftool} for Linux and \texttt{portable executable} files for Windows, to parse the objects themselves.
 Then the \textit{memory image} is exposed by relocations in the binary file.\cite{art-of-war-angr}
 The \texttt{SimuVEX} module creates a \textit{program state}, a snapshot of registers, memory, and open files, which is then used by angr's simulation engine \texttt{SimEngine}.
 
 \texttt{The SimuVEX} module creates a program state and a snapshot of registers, memory, and open files, which is then used by angr's simulation engine, SimEngine. SimuVEX uses a set of plugins, such as \texttt{project.factory.block()}, to extract basic blocks from the binary into block objects, which saves the entry point of the code block, assembly mnemonics, an instruction counter, as well as addresses of the instructions.\cite{art-of-war-angr} This data is then used as abstract expressions in an expression tree with values as leaf nodes and operations as non-leaf nodes.\\
 
-Claripy's functionality is made up of two parts: the \textit{front end} and the \textit{back end}. The backend can translate the expressions into data domains during the examination process. It supports the concrete domain (integers, floating-point numbers) and the symbolic domain (symbolic integers and floating-point numbers).
+Claripy's functionality comprises two parts: the \textit{front end} and the \textit{back end}. The backend can translate the expressions into data domains during the examination process. It supports the concrete domain (integers, floating-point numbers) and the symbolic domain (symbolic integers and floating-point numbers).
 The frontend modules augment the backend with additional functionality, such as \textit{symbolic solving, constraint solving, expression interpretation, and symbolic constraint solving}.
 angr provides several analyses, e.g., \textit{dynamic symbolic execution} and \textit{CFG recovery}. The primary interfaces for such analyses are \texttt{path groups}, modules that are interfaces to dynamic symbolic execution. They track execution paths of applications. \texttt{Analyses} provide abstractions for complete program analyses and manage static analyses.
 
@@ -228,21 +228,21 @@ angr provides several analyses, e.g., \textit{dynamic symbolic execution} and \t
 The CLE loader (CLE stands for "CLE loads everything") extracts the actual executable from the binary code. It can read many types, such as portable executable, executable, and linking format binaries.
 The CLE loader is a set of \textit{binary objects} loaded and mapped into a single memory space. A specialized loader backend processes each file type. Depending on the header of the file, CLE then makes assumptions about the intended architecture of the binary. It creates a representation of the \textit{memory map}, and the virtual memory segment is assigned a direct byte-for-byte correlation with some part of the file by simulating the actual loader. The result is a Loader object with the memory of the program.\cite{loading-a-binary}\\
 
-\textbf{Archinfo}\\
+\noindent\textbf{Archinfo}\\
 During the loading process, an analysis evaluates the header and other heuristics to guess the targeted architecture of the binary file. The \texttt{archinfo} library gets called with this information and returns a map of the register file, bit width, usual endian-ness, etc.\\
 
-\textbf{SimEngine}\\
+\noindent\textbf{SimEngine}\\
 The SimEngine interprets the code in a meaningful way. It saves the \textit{program's state}, a snapshot of the registers, memory, basic block of instructions, etc., and produces a set of \textit{successors}: Possible data program states that can be reached from this block.
 The constraints and conditions needed to take the branches' paths are collected when branches occur.\\
 
-\textbf{PyVEX}\\
+\noindent\textbf{PyVEX}\\
 The default engine of the lifter, \texttt{SimEngineVEX}, supports many architectures because it does not run directly on their machine code. Instead, it uses the \texttt{VEX IR}, which the machine code is lifted into.\cite{angr-internals}\\
-Instead of creating a new engine for a special architecture, a lifter can be a more efficient solution: It allows PyVEX to take care of the rest.\cite{art-of-war-angr}\\
+Instead of creating a new engine for a special architecture, a lifter can be a more efficient solution: It allows PyVEXcare fore of the rest.\cite{art-of-war-angr}\\
 
-\textbf{Claripy}\\
-Angrs lifter Claripy is an abstracted constraint-solving wrapper.\cite{claripy-documentation} Operations are not represented as concrete values, but as expressions that are eventually composed from several expressions. Claripy creates these compositions and solves them with Microsoft's SMT-solver Z3.\cite{angr-internals}
+\noindent\textbf{Claripy}\\
+Angrs lifter Claripy is an abstracted constraint-solving wrapper.\cite{claripy-documentation} Operations are not represented as concrete values, but as expressions that are eventually composed from several expressions. Claripy creates these compositions and solves them with Microsoft's SMT-solver Z3.\cite{angr-internals}\\
 
-\textbf{SimOS}\\
+\noindent\textbf{SimOS}\\
 The OS provides higher-level functionality and abstraction, such as \texttt{stdin}, file management, and networking. SimOS provides an abstraction for this by defining OS-specific embellishments on the initial state of the program. The \texttt{SimProcedures} module provides \texttt{system calls} and symbolic summaries of syscalls and standard library functions.
 This makes angr faster and compatible than symbolically executing \texttt{libc} itself.
 
@@ -307,13 +307,13 @@ The data types include integers, arithmetic, floating-point numbers, bit-operati
 Data may be stored as strongly typed temporary variables in \textit{internal registers}, which can be read with IR operations.\\
 
 \noindent\textbf{Statements}\\
-IR Statements keep track of changes in the state of the targeted processor architecture, such as read and write in memory and registers. The data that they use is retrieved by the IR expressions.\\
+IR statements keep track of changes in the state of the targeted processor architecture, such as read and write in memory and registers. The data that they use is retrieved by the IR expressions.\\
 
 \noindent\textbf{Blocks}\\
 IR blocks represent \textit{IR super blocks (IRSB)} of the targeted architecture and are a set of IR statements.
 
 \subsection{P-Code}
- Ghidra uses \textit{p-code} as IR. It is a \textit{register transfer language} \cite{PCode-reference-manual} general enough to abstract the machine code of several general-purpose processors. It enables explicit data manipulation on user-defined registers and address spaces. During the analysis process, the p-code also gets lifted into \textit{single static assignment (SSA)}\cite{working-with-ghidras-pCode-to-identify-vulnerable-function-calls}. During the SSA optimization, all code blocks get updated with data gained from the analysis of the control flow. However, whenever the value of a variable changes, it does not get updated; instead, it is replaced by a new version number.\cite{introduction-to-compilers-and-language-design}
+ Ghidra uses \textit{p-code} as IR. It is a \textit{register transfer language} \cite{PCode-reference-manual} general enough to abstract the machine code of several general-purpose processors. It enables explicit data manipulation on user-defined registers and address spaces. During the analysis process, the p-code also gets lifted into \textit{single static assignment (SSA)}\cite{working-with-ghidras-pCode-to-identify-vulnerable-function-calls}. During the SSA optimization, all code blocks get updated with data gained from control flow analysis flow. However, whenever the value of a variable changes, it does not get updated; instead, it is replaced by a new version number.\cite{introduction-to-compilers-and-language-design}
 P-Code mirrors processor tasks and concepts with three core ideas: \textit{Address space, Varnodes} and \textit{Operations}.\\
 
 \noindent\textbf{Address Spaces}\\
@@ -321,7 +321,7 @@ The p-code address space is a generalization of RAM.
 It is defined as a sequence of bytes that can be read and written by p-code operations and is characterized by name and size. Only in the address spaces can data be manipulated.\\
 
 \noindent\textbf{Varnodes}\\
-Registers of a processor are represented by varnodes. They are saved as a continuous set of bytes in a p-code address space and get manipulated by p-code operations.
+Registers of a processor are represented by varnodes. They are saved as a continuous set of bytes in a p-code address space get manipulated by p-code operations.
 Varnodes are typeless sequential bytes, only characterized by a starting address and size. The p-code operations can then interpret them as types, which are integer, boolean, and floating point numbers.\\
 
 \noindent\textbf{Operations}\\
@@ -338,11 +338,11 @@ p-code focuses mainly on static analysis and decompilation, and has a more human
 The following comparison is regarding the difference in performance measuring outcomes of the papers:\textit{ Decompilebench: A comprehnsible benchmark for evaluating decompilers in the real world scenarios}\cite{decompileBench-comprehensice-benchmark-for-evaluating-decompilers-in-real-world-scenarios}, \textit{DisCo: Combining Disassemblers for Improved Performance}\cite{DisCo-combining-disassemblers-for-improved-performance} and \textit{An Empirical Study on ARM Disassembly Tools}\cite{an-empirical-study-on-ARM-disassembly-disassembly-tools}
 
 \subsection{Decompilation}
-\texttt{DecompileBench} is the first comprehensible framework for effective evaluation of compilers in reverse engineering workflows, focusing on semantic accuracy and analyst usability of decompilation.\\
-While the paper focuses on the possibility of the usage of LLM-powered approaches for reverse engineering, the takeaway for this seminar paper will be the IR benchmark comparisons.\\
+\texttt{DecompileBench} is the first comprehensible framework effectively evaluatingn of compilers in reverse engineering workflows, focusing on semantic accuracy and analyst usability of decompilation.\\
+While the paper focuses on the possibility of LLM-powered approaches for reverse engineering, the takeaway for this seminar paper will be the IR benchmark comparisons.\\
 \\
 The \hyperref[sec:decompileBench-comparison]{table} below shows the \textit{recompile success rate (RSR)} and \textit{coverage equivalence rate (CER)} of angr and Ghidra with several compiler optimization stages.\\
-The RSR is the percentage of decompiled functions that can be successfully recompiled back into valid machine code. It measures whether the output is able to compile. If the decompiler produces code that the compiler accepts and turns into an executable without errors, it counts as a success.\\
+The RSR is the percentage of decompiled functions that can be successfully recompiled back into valid machine code. It measures whether the outcane to compile. If the decompiler produces code that the compiler accepts and turns into an executable without errors, it counts as a success.\\
 CER measures how many recompiled functions preserve the original behavior at runtime and produce an equivalent execution outcome.
 
 \begin{table}[h]
@@ -364,8 +364,8 @@ Ghidra & 0.524 & 0.421 & 0.395 & 0.377 & 0.353 & \textbf{0.413} & 0.374 & 0.294 
 \label{sec:decompileBench-comparison}
 \end{table}
 
-\subsection{Disassembly}
-In order to combine disassemblers, \texttt{DisCo} evaluates the performance of commonly used reverse engineering tools using \textit{Correctly identified function starts (CFS)} as well as \textit{precision and recall} and their derived F1 scores as key metrics for comparison of disassemblers.\\
+\subsection{DisCo: Combining Disassemblers}
+To combine disassemblers, \texttt{DisCo} evaluates the performance of commonly used reverse engineering tools using \textit{Correctly identified function starts (CFS)} as well as \textit{precision and recall} and their derived F1 scores as key metrics for comparison of disassemblers.\\
 angr outperforms at the disassembly of \texttt{MIPS}-binaries, where it has a $4.035\,\%$ better F1-score than Ghidra.
 However, it performs worse than Ghidra with \texttt{}{ARM}-binaries.
 \begin{table}[H]
@@ -449,10 +449,9 @@ The findings of this paper reveil the root causes of failed analysis and provide
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
 \label{sec:conclusion}
-Binary analysis is a crucial weapon in the defense against malware.\\
-In order to effectively address diverse threats, a broad spectrum of defense techniques must be developed and maintained.\\
+Binary analysis is a crucial weapon in the defense against malwareTor to effectively address diverse threats, a broad spectrum of defense techniques must be developed and maintained.\\
 Although Ghidra shows better benchmark performance, angr cultivates a wider, more open-source-oriented, and community-driven approach of a reverse engineering toolbox for defensive analysis.\\
-Further research is required to determine the underlying causes of the performance differences between Ghidra and angr, whether this is due to differences in the IRs used or rather to the internal workflow. 
+Further research is required to determine the underlying causes of the performance differences between Ghidra and angr, whether this is due to differences in the IRs used to the internal workflow. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{plainnat}
 \bibliography{bibliography}
